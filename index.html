@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>曜境 - Excellent Future Education</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Source Han Serif TC', '思源宋體 TC', 'Source Han Serif', serif;
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+    .block{
+        height: 80px;
+    }
+    .logo {
+      height: 24px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 10px;
+      text-align: center;
+    }
+
+    nav a:hover {
+      color: #0055aa;
+    }
+
+    nav span {
+      color: #000;
+      margin: 0 8px;
+    }
+
+    .nav-sub {
+      display: block;
+      font-size: 11px;
+      color: #777;
+    }
+
+    .cart-icon {
+      width: 18px;
+      height: 18px;
+      margin-left: 10px;
+    }
+
+    /* Hero Text */
+    .hero-text {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    .hero-text h1 {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .hero-text p {
+      font-size: 12px;
+      color: #666;
+    }
+
+    /* Hero Image */
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      height: calc(100vh - 320px);
+    }
+
+    /* Footer scroll text */
+    .scroll {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #043d78;
+      margin-bottom: 200px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav a {
+        margin: 8px;
+      }
+    }
+    /* Featured Section */
+    .featured {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      background-color: #f7f8fa;
+      overflow: hidden;
+    }
+
+    .featured-text {
+      width: 50%;
+      padding-right: 40px;
+      font-size: 14px;
+      color: #2b2b2b;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      height: 100%;
+    }
+    .featured-text-content{
+        padding: 20px 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 225px;
+    }
+
+    .featured-text h2 {
+      font-size: 16px;
+      color: #1a2b61;
+      margin-bottom: 10px;
+    }
+
+    .featured-text p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
+    .featured-whiteSpace{
+        width: 25%;
+        height: 100%;
+        background-color: #FFFFFF;
+    }
+
+    .btn-more {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 20px;
+      border: 1px solid #1a2b61;
+      color: #1a2b61;
+      background: white;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .btn-more:hover {
+      background-color: #1a2b61;
+      color: white;
+    }
+
+    .featured-img {
+      width: 40%;
+    }
+
+    .featured-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Info Section */
+    .info {
+      padding: 200px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .info-content{
+        width: 1000px;
+    }
+
+    .info-label {
+      font-size: 12px;
+      color: #043d78;
+      writing-mode: vertical-rl;
+      text-align: left;
+      margin-left: 10px;
+      margin-bottom: 40px;
+    }
+    .info-title{
+        display: flex;
+        margin-bottom: 30px;
+    }
+    .info-number{
+        margin-left: 15px;
+        font-size: 14px;
+        color: #043d78;
+        display: flex;
+    }
+    .info-numberLine{
+        display: flex;
+        align-items: center;
+       position: relative;
+    }
+    .info-numberLine div{
+        margin-left: 10px;
+        width: 70px;
+        height: 1px;
+        background-color: #043d78;
+        position: relative;
+        top: -41px;
+    }
+    .info-list {
+        
+    }
+
+    .info-item {
+      margin-bottom: 30px;
+    }
+
+    .info-item time {
+      font-size: 12px;
+      display: block;
+      color: #444;
+    }
+
+    .info-item p {
+      font-size: 13px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <img src="./logo.png" alt="深川製磁 Logo" class="logo"> <!-- 放你的 logo -->
+    <nav>
+      <a href="#">HOME<span class="nav-sub">首頁</span></a>
+      <a href="#">ABOUT<span class="nav-sub">關於我們</span></a>
+      <a href="#">PRODUCTS<span class="nav-sub">商品介紹</span></a>
+      <a href="#">SHOP<span class="nav-sub">公司情報</span></a>
+      <a href="#">CASE STUDY<span class="nav-sub">案例分享</span></a>
+      <span>|</span>
+      <a href="#">FORM LINK<span class="nav-sub">表單連結</span></a>
+    </nav>
+    <img src="./mail.png" alt="Cart" class="cart-icon"> 
+  </header>
+  <div class="block"></div>
+  <!-- Hero Text -->
+  <section class="hero-text">
+    <h1>【想要進 找曜境】</h1>
+    <p>Continuing to enrich the mind through time.</p>
+  </section>
+
+  <!-- Hero Image -->
+  <section class="hero-image">
+    <img src="./banner.jpg" alt="絵付け中の陶器"> <!-- 這裡放你的主視覺圖 -->
+  </section>
+
+  <!-- Scroll -->
+  <div class="scroll">
+    Scroll
+  </div>
+
+
+  <section class="featured">
+    <div class="featured-text">
+        <div class="featured-text-content">
+            <div class="">
+                <h2>曜境 / 留學 / 遊學</h2>
+                <p>“從諮詢規劃”</p>
+                <p>到文件討論、選校、申請、註冊入學</p>
+            </div>
+            <div class="">
+                <a class="btn-more" href="#">詳細はこちら →</a>
+            </div>
+        </div>
+    </div>
+    <div class="featured-img">
+      <img src="./show1.jpg" alt="ティーポットセット">
+    </div>
+    <div class="featured-whiteSpace"></div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info">
+    <div class="info-content">
+        <div class="info-title">
+            <div class="info-label">
+                Information<br><span style="font-size: 16px; font-weight: 800;">最新消息</span>
+            </div>
+            <div class="info-number"><div>01</div><div class="info-numberLine"><div class=""></div></div></div>
+        </div>
+          <div class="info-list">
+            <div class="info-item">
+              <time>2025.4.1</time>
+              <p>2025年 深川製磁 有田陶器市とWEB陶器市 同時開催のお知らせ 心ゆさぶるものづくり、心おどる陶器市</p>
+            </div>
+          </div>
+    </div>
+
+  </section>
+</body>
+</html>
