@@ -313,13 +313,31 @@
         width: 55%;
       }
       .pageFooter{
-
+        padding: 35px 50px;
+        display: flex;
+        height: 163px;
+        background-color: #043d78;
+        color:#FFFFFF;
+        justify-content: space-between;
       }
       .pageFooter-right{
-
+        font-size: 14px;
+        writing-mode: vertical-rl;
+        text-align: left;
       }
-      .pageFooter-right{
-
+      .pageFooter-right div{
+        margin-left: 10px;
+      }
+      .pageFooter-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+      .pageFooter-con{
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
       }
     </style>
   </head>
@@ -462,8 +480,11 @@
     </section>
     <footer class="pageFooter">
       <div class="pageFooter-left">
-        <div class=""></div>
-        <div class="">@ 2025 yaojing COPY RIGHT</div>
+        <div class="">
+          <div class="pageFooter-con"><img src="./logo.png" alt="深川製磁 Logo" class="logo" style="margin-right: 10px;" />聯絡我們</div>
+          <div class="pageFooter-con"><img src="./mail.png" alt="Cart" class="logo" style="margin-right: 10px;" />09123456789</div>
+        </div>
+        <div class="">@ 2025 yaojing COPYRIGHT</div>
       </div>
       <div class="pageFooter-right">
         <div class="">FACEBOOK</div>
