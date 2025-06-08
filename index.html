@@ -1,497 +1,559 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>曜境 - Excellent Future Education</title>
-    <style>
-      body {
-        margin: 0;
-        font-family: "Source Han Serif TC", "思源宋體 TC", "Source Han Serif",
-          serif;
-        color: #333;
-        background-color: #fff;
-      }
 
-      /* Navbar */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>曜境 - Excellent Future Education</title>
+  <style>
+    button {
+      appearance: none;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font: inherit;
+      color: inherit;
+      text-align: inherit;
+      line-height: inherit;
+      cursor: pointer;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Source Han Serif TC", "思源宋體 TC", "Source Han Serif",
+        serif;
+      color: #333;
+      background-color: #fff;
+    }
+
+    /* Navbar */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #ddd;
+      z-index: 1000;
+    }
+
+    .block {
+      height: 80px;
+    }
+
+    .logo {
+      height: 24px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      margin: 0 25px;
+      text-align: center;
+    }
+
+    nav a:hover {
+      color: #0055aa;
+    }
+
+    nav span {
+      color: #000;
+      margin: 0 8px;
+    }
+
+    .nav-sub {
+      display: block;
+      font-size: 16px;
+      color: #777;
+      font-weight: 900;
+    }
+
+    .cart-icon {
+      width: 18px;
+      height: 18px;
+      margin-left: 10px;
+    }
+
+    /* Hero Text */
+    .hero-text {
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    .hero-text h1 {
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    /* Hero Image */
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      height: calc(100vh - 320px);
+    }
+
+    /* Footer scroll text */
+    .scroll {
+      text-align: center;
+      padding: 20px;
+      font-size: 16px;
+      color: #043d78;
+      margin-bottom: 200px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 768px) {
       header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: #fff;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px;
-        border-bottom: 1px solid #ddd;
-        z-index: 1000;
-      }
-      .block {
-        height: 80px;
-      }
-      .logo {
-        height: 24px;
+        flex-direction: column;
+        padding: 15px;
       }
 
       nav {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       nav a {
-        color: #333;
-        text-decoration: none;
-        margin: 0 10px;
-        text-align: center;
+        margin: 8px;
       }
+    }
 
-      nav a:hover {
-        color: #0055aa;
-      }
+    /* Featured Section */
+    .featured {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 300px;
+      background-color: #f7f8fa;
+      overflow: hidden;
+    }
 
-      nav span {
-        color: #000;
-        margin: 0 8px;
-      }
+    .featured-text {
+      width: 50%;
+      padding-right: 40px;
+      font-size: 16px;
+      color: #2b2b2b;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      height: 100%;
+    }
 
-      .nav-sub {
-        display: block;
-        font-size: 11px;
-        color: #777;
-      }
+    .featured-text-content {
+      padding: 20px 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 225px;
+    }
 
-      .cart-icon {
-        width: 18px;
-        height: 18px;
-        margin-left: 10px;
-      }
+    .form-link {
+      background-color: #B9AFA6;
+      padding: 10px 20px;
+      color: white;
+      border-radius: 10px;
+    }
+    .form-link:hover {
+      background-color: #DAD5CC;
+    }
+    .form-link .nav-sub{
+      color: white;
+    }
 
-      /* Hero Text */
-      .hero-text {
-        text-align: center;
-        margin-top: 60px;
-        margin-bottom: 60px;
-      }
+    .featured-text h2 {
+      font-size: 16px;
+      color: #1a2b61;
+      margin-bottom: 10px;
+    }
 
-      .hero-text h1 {
-        font-size: 18px;
-        letter-spacing: 2px;
-        margin-bottom: 5px;
-      }
+    .featured-text p {
+      margin: 5px 0;
+      line-height: 1.6;
+    }
 
-      .hero-text p {
-        font-size: 12px;
-        color: #666;
-      }
+    .featured-whiteSpace {
+      width: 25%;
+      height: 100%;
+      background-color: #ffffff;
+    }
 
-      /* Hero Image */
-      .hero-image img {
-        width: 100%;
-        height: auto;
-        display: block;
-        height: calc(100vh - 320px);
-      }
+    .btn-more {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 20px;
+      border: 1px solid #1a2b61;
+      color: #1a2b61;
+      background: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
 
-      /* Footer scroll text */
-      .scroll {
-        text-align: center;
-        padding: 20px;
-        font-size: 12px;
-        color: #043d78;
-        margin-bottom: 200px;
-        font-weight: 800;
-      }
+    .btn-more:hover {
+      background-color: #1a2b61;
+      color: white;
+    }
 
-      @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          padding: 15px;
-        }
+    .featured-img {
+      width: 40%;
+    }
 
-        nav {
-          flex-wrap: wrap;
-          justify-content: center;
-        }
+    .featured-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        nav a {
-          margin: 8px;
-        }
-      }
-      /* Featured Section */
-      .featured {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 300px;
-        background-color: #f7f8fa;
-        overflow: hidden;
-      }
+    /* Info Section */
+    .info {
+      padding-top: 200px;
+      padding-bottom: 150px;
+      display: flex;
+    }
 
-      .featured-text {
-        width: 50%;
-        padding-right: 40px;
-        font-size: 14px;
-        color: #2b2b2b;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        height: 100%;
-      }
-      .featured-text-content {
-        padding: 20px 0;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 225px;
-      }
+    .info-whiteSpace {
+      width: 20%;
+    }
 
-      .featured-text h2 {
-        font-size: 16px;
-        color: #1a2b61;
-        margin-bottom: 10px;
-      }
+    .info-content {
+      width: 80%;
+    }
 
-      .featured-text p {
-        margin: 5px 0;
-        line-height: 1.6;
-      }
-      .featured-whiteSpace {
-        width: 25%;
-        height: 100%;
-        background-color: #ffffff;
-      }
+    .info-label {
+      font-size: 16px;
+      color: #043d78;
+      writing-mode: vertical-rl;
+      text-align: left;
+      margin-bottom: 40px;
+    }
 
-      .btn-more {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 8px 20px;
-        border: 1px solid #1a2b61;
-        color: #1a2b61;
-        background: white;
-        text-decoration: none;
-        font-size: 13px;
-      }
+    .info-title {
+      display: flex;
+      margin-bottom: 30px;
+    }
 
-      .btn-more:hover {
-        background-color: #1a2b61;
-        color: white;
-      }
+    .info-number {
+      margin-left: 15px;
+      font-size: 16px;
+      color: #043d78;
+      display: flex;
+    }
 
-      .featured-img {
-        width: 40%;
-      }
+    .info-numberLine {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
 
-      .featured-img img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
+    .info-numberLine div {
+      margin-left: 10px;
+      width: 70px;
+      height: 1px;
+      background-color: #043d78;
+      position: relative;
+      top: -41px;
+    }
 
-      /* Info Section */
-      .info {
-        padding-top: 200px;
-        padding-bottom: 150px;
-        display: flex;
-      }
-      .info-whiteSpace {
-        width: 20%;
-      }
+    .info-list {
+      width: 600px;
+    }
 
-      .info-content {
-        width: 80%;
-      }
+    .info-item {
+      padding: 20px 0;
+      font-weight: 600;
+    }
 
-      .info-label {
-        font-size: 12px;
-        color: #043d78;
-        writing-mode: vertical-rl;
-        text-align: left;
-        margin-bottom: 40px;
-      }
-      .info-title {
-        display: flex;
-        margin-bottom: 30px;
-      }
-      .info-number {
-        margin-left: 15px;
-        font-size: 14px;
-        color: #043d78;
-        display: flex;
-      }
-      .info-numberLine {
-        display: flex;
-        align-items: center;
-        position: relative;
-      }
-      .info-numberLine div {
-        margin-left: 10px;
-        width: 70px;
-        height: 1px;
-        background-color: #043d78;
-        position: relative;
-        top: -41px;
-      }
-      .info-list {
-        width: 600px;
-      }
+    .info-item+.info-item {
+      border-top: 1px solid #b4b4b4;
+    }
 
-      .info-item {
-        padding: 20px 0;
-        font-weight: 600;
-      }
-      .info-item + .info-item {
-        border-top: 1px solid #b4b4b4;
-      }
+    .info-item time {
+      font-size: 16px;
+      display: block;
+      color: #444;
+    }
 
-      .info-item time {
-        font-size: 12px;
-        display: block;
-        color: #444;
-      }
+    .info-item p {
+      font-size: 16px;
+      margin-top: 4px;
+    }
 
-      .info-item p {
-        font-size: 13px;
-        margin-top: 4px;
-      }
-      .pic {
-        height: 350px;
-      }
-      .pic-content {
-        display: flex;
-        height: 100%;
-      }
-      .pic-content-whiteSpace {
-        width: 25%;
-      }
-      .pic-content-view {
-        width: 75%;
-        display: flex;
-      }
-      .pic-content-view img {
-        width: 33%;
-      }
-      .info-2 {
-        justify-content: flex-end;
-      }
-      .info-2-back {
-        background-color: #f5f6f7;
-        width: 100%;
-        height: calc(100% - 185px);
-        position: absolute;
-        top: 50px;
-        left: 0;
-      }
-      .info-2-content {
-        display: flex;
-        justify-content: right;
-      }
-      .info-2 .info-title {
-        position: relative;
-        width: 75%;
-        z-index: 1;
-      }
-      .info-2 .info-list {
-        position: relative;
-        width: 75%;
-        z-index: 1;
-      }
-      .info-2 .info-img {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-      }
-      .info-2 .info-img img{
-        width: 100%;
-      }
-      .info-2 .info-content {
-        position: relative;
-      }
-      .info-right {
-        width: 55%;
-      }
-      .pageFooter{
-        padding: 35px 50px;
-        display: flex;
-        height: 163px;
-        background-color: #043d78;
-        color:#FFFFFF;
-        justify-content: space-between;
-      }
-      .pageFooter-right{
-        font-size: 14px;
-        writing-mode: vertical-rl;
-        text-align: left;
-      }
-      .pageFooter-right div{
-        margin-left: 10px;
-      }
-      .pageFooter-left{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        font-size: 14px;
-      }
-      .pageFooter-con{
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <header>
-      <img src="./logo.png" alt="深川製磁 Logo" class="logo" />
-      <!-- 放你的 logo -->
-      <nav>
-        <a href="#">HOME<span class="nav-sub">首頁</span></a>
-        <a href="#">ABOUT<span class="nav-sub">關於我們</span></a>
-        <a href="#">PRODUCTS<span class="nav-sub">商品介紹</span></a>
-        <a href="#">SHOP<span class="nav-sub">公司情報</span></a>
-        <a href="#">CASE STUDY<span class="nav-sub">案例分享</span></a>
-        <span>|</span>
-        <a href="#">FORM LINK<span class="nav-sub">表單連結</span></a>
-      </nav>
-      <img src="./mail.png" alt="Cart" class="cart-icon" />
-    </header>
-    <div class="block"></div>
-    <!-- Hero Text -->
-    <section class="hero-text">
-      <h1>【想要進 找曜境】</h1>
-      <p>Continuing to enrich the mind through time.</p>
-    </section>
+    .pic {
+      height: 350px;
+    }
 
-    <!-- Hero Image -->
-    <section class="hero-image">
-      <img src="./banner.jpg" alt="絵付け中の陶器" />
-      <!-- 這裡放你的主視覺圖 -->
-    </section>
+    .pic-content {
+      display: flex;
+      height: 100%;
+    }
 
-    <!-- Scroll -->
-    <div class="scroll">Scroll</div>
+    .pic-content-whiteSpace {
+      width: 25%;
+    }
 
-    <section class="featured">
-      <div class="featured-text">
-        <div class="featured-text-content">
-          <div class="">
-            <h2>曜境 / 留學 / 遊學</h2>
-            <p>“從諮詢規劃”</p>
-            <p>到文件討論、選校、申請、註冊入學</p>
-          </div>
-          <div class="">
-            <a class="btn-more" href="#">了解詳細說明 →</a>
+    .pic-content-view {
+      width: 75%;
+      display: flex;
+    }
+
+    .pic-content-view img {
+      width: 33%;
+    }
+
+    .info-2 {
+      justify-content: flex-end;
+    }
+
+    .info-2-back {
+      background-color: #f5f6f7;
+      width: 100%;
+      height: calc(100% - 185px);
+      position: absolute;
+      top: 50px;
+      left: 0;
+    }
+
+    .info-2-content {
+      display: flex;
+      justify-content: right;
+    }
+
+    .info-2 .info-title {
+      position: relative;
+      width: 75%;
+      z-index: 1;
+    }
+
+    .info-2 .info-list {
+      position: relative;
+      width: 75%;
+      z-index: 1;
+    }
+
+    .info-2 .info-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .info-2 .info-img img {
+      width: 100%;
+    }
+
+    .info-2 .info-content {
+      position: relative;
+    }
+
+    .info-right {
+      width: 55%;
+    }
+
+    .pageFooter {
+      padding: 35px 50px;
+      display: flex;
+      height: 163px;
+      background-color: #043d78;
+      color: #FFFFFF;
+      justify-content: space-between;
+    }
+
+    .pageFooter-right {
+      font-size: 16px;
+      writing-mode: vertical-rl;
+      text-align: left;
+    }
+
+    .pageFooter-right div {
+      margin-left: 10px;
+    }
+
+    .pageFooter-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 16px;
+    }
+
+    .pageFooter-con {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <img src="./logo.png" alt="深川製磁 Logo" class="logo" />
+    <!-- 放你的 logo -->
+    <nav>
+      <a href="#">HOME<span class="nav-sub">首頁</span></a>
+      <a href="#">ABOUT<span class="nav-sub">關於我們</span></a>
+      <a href="#">PRODUCTS<span class="nav-sub">服務項目</span></a>
+      <a href="#">BLOG<span class="nav-sub">留學部落格</span></a>
+      <a href="#">NEW<span class="nav-sub">最新消息</span></a>
+      <span>|</span>
+      <button class="form-link"><span class="nav-sub">預約諮詢</span></button>
+    </nav>
+  </header>
+  <div class="block"></div>
+  <!-- Hero Text -->
+  <section class="hero-text">
+    <h1>【想要進 找曜境】</h1>
+    <p>Continuing to enrich the mind through time.</p>
+  </section>
+
+  <!-- Hero Image -->
+  <section class="hero-image">
+    <img src="./banner.jpg" alt="絵付け中の陶器" />
+    <!-- 這裡放你的主視覺圖 -->
+  </section>
+
+  <!-- Scroll -->
+  <div class="scroll">Scroll</div>
+
+  <section class="featured">
+    <div class="featured-text">
+      <div class="featured-text-content">
+        <div class="">
+          <h2>曜境 / 留學 / 遊學</h2>
+          <p>“從諮詢規劃”</p>
+          <p>到文件討論、選校、申請、註冊入學</p>
+        </div>
+        <div class="">
+          <a class="btn-more" href="#">了解詳細說明 →</a>
+        </div>
+      </div>
+    </div>
+    <div class="featured-img">
+      <img src="./show1.jpg" alt="ティーポットセット" />
+    </div>
+    <div class="featured-whiteSpace"></div>
+  </section>
+
+  <!-- Info Section -->
+  <section class="info">
+    <div class="info-whiteSpace"></div>
+    <div class="info-content">
+      <div class="info-title">
+        <div class="info-label">
+          Information<br /><span style="font-size: 16px; font-weight: 800">最新消息</span>
+        </div>
+        <div class="info-number">
+          <div>01</div>
+          <div class="info-numberLine">
+            <div class=""></div>
           </div>
         </div>
       </div>
-      <div class="featured-img">
-        <img src="./show1.jpg" alt="ティーポットセット" />
+      <div class="info-list">
+        <div class="info-item">
+          <time>2025.4.1</time>
+          <p>
+            從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
+          </p>
+        </div>
+        <div class="info-item">
+          <time>2025.4.1</time>
+          <p>
+            從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
+          </p>
+        </div>
+        <div class="info-item">
+          <time>2025.4.1</time>
+          <p>
+            從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
+          </p>
+        </div>
       </div>
-      <div class="featured-whiteSpace"></div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Info Section -->
-    <section class="info">
-      <div class="info-whiteSpace"></div>
-      <div class="info-content">
+  <section class="pic">
+    <div class="pic-content">
+      <div class="pic-content-view">
+        <img src="./pic1.jpg" alt="ティーポットセット" />
+        <img src="./pic2.jpg" alt="ティーポットセット" />
+        <img src="./pic3.jpg" alt="ティーポットセット" />
+      </div>
+      <div class="pic-content-whiteSpace"></div>
+    </div>
+  </section>
+
+  <section class="info info-2">
+    <div class="info-whiteSpace"></div>
+    <div class="info-content info-2-content">
+      <div class="info-right">
         <div class="info-title">
           <div class="info-label">
-            Information<br /><span style="font-size: 16px; font-weight: 800"
-              >最新消息</span
-            >
+            Information<br /><span style="font-size: 16px; font-weight: 800">關於我們</span>
           </div>
           <div class="info-number">
-            <div>01</div>
-            <div class="info-numberLine"><div class=""></div></div>
+            <div>02</div>
+            <div class="info-numberLine">
+              <div class=""></div>
+            </div>
           </div>
+        </div>
+        <div class="info-img">
+          <img src="./show1.jpg" alt="ティーポットセット" />
         </div>
         <div class="info-list">
           <div class="info-item">
-            <time>2025.4.1</time>
             <p>
-              從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
+              相信很多人好奇英國碩士論文是如何進行的，影片中Jessie將分享University of Manchester MSc Finance的論文流程！
             </p>
-          </div>
-          <div class="info-item">
-            <time>2025.4.1</time>
-            <p>
-              從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
-            </p>
-          </div>
-          <div class="info-item">
-            <time>2025.4.1</time>
-            <p>
-              從諮詢規劃到文件討論、選校、申請、註冊入學，每個小細節都由顧問領導一起前進，為你指引最好的路境。
-            </p>
+            <p>影片包含: </p>
+            <p>- 曼大、商學院校園介紹</p>
+            <p>- 論文流程</p>
+            <p>- 代辦使用心得</p>
+            <p>- 留學生活分享 & 給未來學弟妹們的鼓勵</p>
+            <div class="">
+              <a class="btn-more" href="#">了解詳細說明 →</a>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+      <div class="info-2-back"></div>
+    </div>
+  </section>
+  <footer class="pageFooter">
+    <div class="pageFooter-left">
+      <div class="">
+        <div class="pageFooter-con"><img src="./logo.png" alt="深川製磁 Logo" class="logo"
+            style="margin-right: 10px;" />聯絡我們</div>
+        <div class="pageFooter-con"><img src="./mail.png" alt="Cart" class="logo"
+            style="margin-right: 10px;" />09123456789</div>
+      </div>
+      <div class="">@ 2025 yaojing COPYRIGHT</div>
+    </div>
+    <div class="pageFooter-right">
+      <div class="">FACEBOOK</div>
+      <div class="">instagram</div>
+      <div class="">LINE</div>
+      <div class="">threads</div>
+    </div>
+  </footer>
+</body>
 
-    <section class="pic">
-      <div class="pic-content">
-        <div class="pic-content-view">
-          <img src="./pic1.jpg" alt="ティーポットセット" />
-          <img src="./pic2.jpg" alt="ティーポットセット" />
-          <img src="./pic3.jpg" alt="ティーポットセット" />
-        </div>
-        <div class="pic-content-whiteSpace"></div>
-      </div>
-    </section>
-
-    <section class="info info-2">
-      <div class="info-whiteSpace"></div>
-      <div class="info-content info-2-content">
-        <div class="info-right">
-          <div class="info-title">
-            <div class="info-label">
-              Information<br /><span style="font-size: 16px; font-weight: 800"
-                >關於我們</span
-              >
-            </div>
-            <div class="info-number">
-              <div>02</div>
-              <div class="info-numberLine"><div class=""></div></div>
-            </div>
-          </div>
-          <div class="info-img">
-            <img src="./show1.jpg" alt="ティーポットセット" />
-          </div>
-          <div class="info-list">
-            <div class="info-item">
-              <p>
-                相信很多人好奇英國碩士論文是如何進行的，影片中Jessie將分享University of Manchester MSc Finance的論文流程！
-              </p>
-              <p>影片包含: </p>
-              <p>- 曼大、商學院校園介紹</p>
-              <p>- 論文流程</p>
-              <p>- 代辦使用心得</p>
-              <p>- 留學生活分享 & 給未來學弟妹們的鼓勵</p>
-              <div class="">
-                <a class="btn-more" href="#">了解詳細說明 →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="info-2-back"></div>
-      </div>
-    </section>
-    <footer class="pageFooter">
-      <div class="pageFooter-left">
-        <div class="">
-          <div class="pageFooter-con"><img src="./logo.png" alt="深川製磁 Logo" class="logo" style="margin-right: 10px;" />聯絡我們</div>
-          <div class="pageFooter-con"><img src="./mail.png" alt="Cart" class="logo" style="margin-right: 10px;" />09123456789</div>
-        </div>
-        <div class="">@ 2025 yaojing COPYRIGHT</div>
-      </div>
-      <div class="pageFooter-right">
-        <div class="">FACEBOOK</div>
-        <div class="">instagram</div>
-        <div class="">LINE</div>
-        <div class="">threads</div>
-      </div>
-    </footer>
-  </body>
 </html>
